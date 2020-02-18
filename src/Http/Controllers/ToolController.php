@@ -9,6 +9,22 @@ class ToolController extends Controller
     public function index()
     {
         return response()->json([
+
+            //avatar field
+            [
+                "component" => "file-field",
+                "prefixComponent" => true,
+                "indexName" => __("Avatar"),
+                "name" => __("Avatar"),
+                "attribute" => "avatar",
+                "value" => auth()->user()->avatar,
+                "panel" => null,
+                "sortable" => false,
+                "textAlign" => "center",
+                "previewUrl"=> url('/avatars') . '/' . auth()->user()->avatar,
+                "maxWidth"=>'100'
+            ],
+
             [
                 "component" => "text-field",
                 "prefixComponent" => true,
